@@ -24,16 +24,16 @@ read -p "请输入你想要分配每个节点的存储空间大小（GB），单
 # 让用户输入存储路径（可选）
 read -p "请输入节点存储数据的宿主机路径（直接回车将使用默认路径 titan_storage_$i,依次数字顺延）: " custom_storage_path
 
-yum update
+apt update
 
 # 检查 Docker 是否已安装
 if ! command -v docker &> /dev/null
 then
     echo "未检测到 Docker，正在安装..."
-    wget-get install ca-certificates curl gnupg lsb-release -y
+    apt-get install ca-certificates curl gnupg lsb-release -y
     
     # 安装 Docker 最新版本
-    wget-get install docker.io -y
+    apt-get install docker.io -y
 else
     echo "Docker 已安装。"
 fi
